@@ -50,20 +50,15 @@ public class A_QSort {
         //подготовка к чтению данных
         Scanner scanner = new Scanner(stream);
         //!!!!!!!!!!!!!!!!!!!!!!!!!     НАЧАЛО ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
-        //число отрезков отсортированного массива
         int n = scanner.nextInt();
         Segment[] segments = new Segment[n];
-        //число точек
         int m = scanner.nextInt();
         int[] points = new int[m];
         int[] result = new int[m];
 
-        //читаем сами отрезки
         for (int i = 0; i < n; i++) {
-            //читаем начало и конец каждого отрезка
             int start = scanner.nextInt();
             int end = scanner.nextInt();
-            //гарантируем, что start <= end
             if (start > end) {
                 int temp = start;
                 start = end;
@@ -71,24 +66,15 @@ public class A_QSort {
             }
             segments[i] = new Segment(start, end);
         }
-        //читаем точки
         for (int i = 0; i < m; i++) {
             points[i] = scanner.nextInt();
         }
 
-        //тут реализуйте логику задачи с применением быстрой сортировки
-        //в классе отрезка Segment реализуйте нужный для этой задачи компаратор
-
-        // Сортируем отрезки по началу
         quickSort(segments, 0, segments.length - 1);
 
-        // Для каждой точки находим количество отрезков, которым она принадлежит
         for (int i = 0; i < m; i++) {
             int point = points[i];
             int count = 0;
-
-            // Используем бинарный поиск для оптимизации
-            // Находим первый отрезок, у которого start > point
             int left = 0;
             int right = n - 1;
             int firstGreater = n;
@@ -103,7 +89,6 @@ public class A_QSort {
                 }
             }
 
-            // Проверяем только отрезки, у которых start <= point
             for (int j = 0; j < firstGreater; j++) {
                 if (point <= segments[j].stop) {
                     count++;
