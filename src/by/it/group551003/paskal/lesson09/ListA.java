@@ -1,4 +1,4 @@
-package by.it.a_khmelev.lesson09;
+package by.it.group551003.paskal.lesson09;
 
 import java.util.Collection;
 import java.util.Iterator;
