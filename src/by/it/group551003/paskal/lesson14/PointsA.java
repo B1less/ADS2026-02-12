@@ -84,7 +84,6 @@ public class PointsA {
             }
             counts[j + 1] = key;
         }
-
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < cnt; i++) {
             if (i > 0) sb.append(' ');
